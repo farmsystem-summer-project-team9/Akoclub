@@ -1,4 +1,6 @@
-# 🐘 About "akoclub"
+## 🐘 About "Akoclub"
 ---
-# 🙌 Team 9
+Akoclub은 
+
+## 🙌 Team 9
 ---
