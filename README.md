@@ -8,7 +8,7 @@ Akoclub은 동국대 학생들을 위한 **동아리 추천 서비스**입니다
     <tr>
       <td align="center">
         <a href="https://github.com/heewon0615">
-          <img src="https://github.com/account" width="100px;" alt=""/>
+          <img src="https://avatars.githubusercontent.com/u/180197153?v=4" width="100px;" alt=""/>
           <br /><sub><b> 주희원 </b></sub>
         </a>
       </td>
@@ -30,6 +30,12 @@ Akoclub은 동국대 학생들을 위한 **동아리 추천 서비스**입니다
           <br /><sub><b> 진원규 </b></sub>
         </a>
       </td>
+    </tr>
+    <tr>
+      <td align="center">팀장</td>
+      <td align="center">팀원</td>
+      <td align="center">팀원</td>
+      <td align="center">팀원</td>
     </tr>
   </tbody>
 </table>
