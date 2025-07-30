@@ -173,7 +173,13 @@
         }
         
         function detailedQuestions() {
-            // 더 세밀한 질문 페이지로 이동
+            const selectedCategory = localStorage.getItem('selectedCategory');
+
+            //분과별 세부 페이지로 이동
+            const detailPageMap = {
+                "봉사": "/detail_questions/social/social_dQ1.html";
+                "공연": "/detail_questions/performance/"
+            }
             window.location.href = '/templates/detail_questions.html';
         }
 

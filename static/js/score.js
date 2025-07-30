@@ -1,6 +1,5 @@
-//점수 계산 로직 구현
 //socre.js
-
+//점수 계산 로직 구현
 
 // 사용자 답변 저장 배열
 let userAnswers = JSON.parse(localStorage.getItem('userAnswers')) || {};
