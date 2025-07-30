@@ -150,3 +150,10 @@ body {
     box-shadow: 0 6px 20px rgba(255, 102, 0, 0.3);
 }
 
+
+.elephant-icon{
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 30px;
+    display: block;
+}
