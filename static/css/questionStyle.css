@@ -1,0 +1,85 @@
+/*분과 구분 질문 공통 스타일*/
+/*questionStyle.css*/
+
+body {
+    font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+
+.container {
+    background-color: #000;
+    border-radius: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.header {
+    background-color: #333;
+    padding: 15px 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #bbb;
+    flex-shrink: 0;
+}
+
+.question-box {
+    background: linear-gradient(to bottom, #ff9933, #ff6600);
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.question-indicator {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.question-text {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.options {
+    width: 80%;
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+.option-btn {
+    background-color: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 10px;
+    padding: 18px 25px;
+    font-size: 1.1em;
+    color: #333;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    font-weight: 500;
+
+}
+
