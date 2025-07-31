@@ -1,6 +1,7 @@
 //socre.js
 //점수 계산 로직 구현
 
+
 // 사용자 답변 저장 배열
 let userAnswers = JSON.parse(localStorage.getItem('userAnswers')) || {};
 
@@ -21,14 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const optionButtons = document.querySelectorAll('.option-btn');
     const totalQuestions = quizData.length; 
 
-    // 선택지 개수에 따라 레이아웃 클래스 추가
+    //선택지 개수가 6개일때 2*3으로 레이아웃 변경
     const optionsContainer = document.querySelector('.options');
     if (optionsContainer) {
-        if (optionButtons.length <= 4) {
-            optionsContainer.classList.add('grid-2x2');
-        } else {
+        if (optionButtons.length == 6) {
             optionsContainer.classList.add('grid-2x3');
-        }
+        } 
     }
 
     // 페이지 로드 시 현재 질문의 점(dot) 활성화
