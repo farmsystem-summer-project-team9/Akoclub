@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AKoClub</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="main-bg">
+    <div class="main-center">
+      <div class="main-title"> <span class="main-title-text">AkoClub</span>
+        <img src="우리학교 마크.png" class="main-logo-overlap" alt="AkoClub Logo"/>
+      </div>
+      <div class="main-sub">나에게 딱! 맞는 <span class="main-highlight">동국대학교</span> 동아리 찾기!</div>
+      <div class="main-desc">관심사와 성격에 맞는 동아리를 찾아보자!</div>
+      <button class="main-btn" onclick="startQuestion()">
+        <span class="main-btn-icon">👤</span> 탐색 시작하기 <span class="main-btn-arrow">»</span>
+      </button>
+    </div>
+    <img src="빼꼼아코.png" class="main-mascot" alt="mascot"/>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html> 
+
+<!-- <!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AKoClub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <div class="main-bg">
+    <div class="main-center">
+      <div class="main-title"> <span class="main-title-text">AkoClub</span>
+        <img src="{{ url_for('static', filename='우리학교 마크.png') }}" class="main-logo-overlap" alt="AkoClub Logo"/>
+      </div>
+      <div class="main-sub">나에게 딱! 맞는 <span class="main-highlight">동국대학교</span> 동아리 찾기!</div>
+      <div class="main-desc">관심사와 성격에 맞는 동아리를 찾아보자!</div>
+      <button class="main-btn" onclick="startQuestion()">
+        <span class="main-btn-icon">👤</span> 탐색 시작하기 <span class="main-btn-arrow">»</span>
+      </button>
+    </div>
+    <img src="{{ url_for('static', filename='빼꼼아코.png') }}" class="main-mascot" alt="mascot"/>
+  </div>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> -->
