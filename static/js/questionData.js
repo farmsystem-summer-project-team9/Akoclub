@@ -1,8 +1,8 @@
-// 분과별 질문 가중치 
 //questionData.js
 
 const quizData = [
     {
+        //분과별 가중치 설정
         id: "Q1",
         question: "Q1. 사람들과 있을 때 나는 보통 어떤 모습인가요?",
         options: [

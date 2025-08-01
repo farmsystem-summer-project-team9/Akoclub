@@ -173,9 +173,25 @@
         }
         
         function detailedQuestions() {
-            // 더 세밀한 질문 페이지로 이동
-            window.location.href = '/templates/detail_questions.html';
+            const selectedCategory = localStorage.getItem('selectedCategory');
+
+            const detailPageMap = {
+                "봉사": "volunteer/volunteer_dQ1.html",
+                "공연": "performance/performance_dQ1.html",
+                "체육": "sports/sports_dQ1.html",
+                "학술": "study/study_dQ1.html",
+                "예창": "art/art_dQ1.html",
+                "사회": "social/social_dQ1.html"
+            };
+
+        if (selectedCategory && detailPageMap[selectedCategory]) {
+            window.location.href = `/templates/detail_questions/${detailPageMap[selectedCategory]}`;
+        } else {
+            alert('세부 질문 페이지를 찾을 수 없습니다. 다시 테스트를 진행해주세요.');
+            window.location.href = '/templates/index.html';
         }
+}
+
 
         function retryQuiz() {
             // 로컬 스토리지 초기화
