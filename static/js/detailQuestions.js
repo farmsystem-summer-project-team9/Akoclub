@@ -1,9 +1,10 @@
 //detailQuestions.js
-//세부질문 다음으로 넘어가는 로직
+//세부질문에서 다음으로 넘어가는 것
 
 document.addEventListener('DOMContentLoaded', () => {
     const optionButtons = document.querySelectorAll('.option-btn');
 
+    //버튼 클릭 시 색깔 변경 
     optionButtons.forEach(button => {
         button.addEventListener('click', () => {
             optionButtons.forEach(btn => btn.classList.remove('selected'));
