@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akoclub - 결과 선택</title>
+    <link rel="stylesheet" href="/static/css/questionStyle.css">
+    <style>
+        .result-choice-container {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .result-message {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        
+        .result-subtitle {
+            font-size: 1.3em;
+            color: #fff;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+        
+        .choice-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .choice-btn {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 25px 30px;
+            font-size: 1.2em;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            min-width: 280px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .choice-btn:hover {
+            background: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .choice-btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .arrow-left {
+            font-size: 1.4em;
+            color: #ff6600;
+        }
+        
+        .arrow-right {
+            font-size: 1.4em;
+            color: #ff6600;
+        }
+        
+        .category-highlight {
+            background: linear-gradient(45deg, #ffcc99, #ff9933);
+            padding: 3px 8px;
+            border-radius: 8px;
+            color: #000;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .choice-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .choice-btn {
+                min-width: 250px;
+                padding: 20px 25px;
+                font-size: 1.1em;
+            }
+            
+            .result-message {
+                font-size: 1.5em;
+            }
+            
+            .result-subtitle {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="question-box">
+            <div class="result-choice-container">
+                <img src="/static/images/엎드린아코.png" alt="elephant" class="elephant-icon">
+                
+                <h1 class="result-message">
+                    와우! 너의 취향이 이제 좀 보여!
+                </h1>
+                
+                <p class="result-subtitle">
+                    여기서 검사를 멈출래? 아니면 너랑 더 잘 맞는 동아리를 더 찾아볼래?
+                </p>
+                
+                <div class="choice-buttons">
+                    <button class="choice-btn" onclick="viewAllClubs()">
+                        <span class="arrow-left">≪</span>
+                        분과 내 모든 동아리 보기
+                    </button>
+                    
+                    <button class="choice-btn" onclick="detailedQuestions()">
+                        나를 위한 맞춤형 동아리 찾기
+                        <span class="arrow-right">>></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/js/questionData.js"></script>
+    <script>
+        // 페이지 로드 시 최고 점수 분과 확인
+        window.addEventListener('load', () => {
+            const finalScores = JSON.parse(localStorage.getItem('finalScores')) || {};
+            
+            // 가장 높은 점수를 받은 카테고리 찾기
+            let maxScore = -1;
+            let topCategory = '';
+            
+            for (const category in finalScores) {
+                if (finalScores[category] > maxScore) {
+                    maxScore = finalScores[category];
+                    topCategory = category;
+                }
+            }
+            
+            // 결과 메시지에 분과명 표시
+            if (topCategory) {
+                const messageElement = document.querySelector('.result-message');
+                messageElement.innerHTML = `와우! 너의 취향이 이제 좀 보여!<br><span class="category-highlight">${topCategory}</span> 분과가 가장 잘 맞아!!`;
+                
+                // 분과 정보를 로컬 스토리지에 저장
+                localStorage.setItem('selectedCategory', topCategory);
+            }
+        });
+        
+        function viewAllClubs() {
+            // 분과 내 모든 동아리 보기 페이지로 이동
+            const selectedCategory = localStorage.getItem('selectedCategory');
+            if (selectedCategory) {
+                // 여기에 분과별 동아리 목록 페이지로 이동하는 로직 추가
+                window.location.href = `/templates/clubs.html?category=${selectedCategory}`;
+            } else {
+                alert('분과 정보를 찾을 수 없습니다. 다시 테스트를 진행해주세요.');
+                window.location.href = '/templates/index.html';
+            }
+        }
+        
+        function detailedQuestions() {
+            // 더 세밀한 질문 페이지로 이동
+            window.location.href = '/templates/detail_questions.html';
+        }
+
+        function retryQuiz() {
+            // 로컬 스토리지 초기화
+            localStorage.removeItem('userAnswers');
+            localStorage.removeItem('finalScores');
+            // 첫 번째 질문으로 이동 (올바른 경로로 수정)
+            window.location.href = '/templates/questionforSection/question_1.html';
+        }
+    </script>
+</body>
+</html>

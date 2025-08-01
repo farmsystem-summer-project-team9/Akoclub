@@ -83,8 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     const nextQuestionFileName = `question_${questionIndex + 2}.html`;
                     window.location.href = `/templates/${nextQuestionFileName}`;
                 } else {
-                    // 마지막 질문이라면 결과 페이지로 이동
-                    window.location.href = '/templates/result.html';
+                    // 마지막 질문이라면 결과 선택 페이지로 이동
+                    window.location.href = '/templates/result_choice.html';
                 }
             }, 300); // 0.3초 후 이동
         });
