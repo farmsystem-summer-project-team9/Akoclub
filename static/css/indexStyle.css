@@ -3,35 +3,26 @@ body, html {
   padding: 0;
   width: 100vw;
   height: 100vh;
-  min-height: 100vh;
-  min-width: 100vw;
   overflow: hidden;
-  box-sizing: border-box;
   font-family: 'Pretendard', 'Noto Sans KR', Arial, sans-serif;
 }
 
 .main-bg {
-  min-height: 100vh;
-  min-width: 100vw;
-  width: 100vw;
-  height: 100vh;
   background: linear-gradient(180deg, #f97e3c 0%, #fbb040 100%);
   position: fixed;
   top: 0; left: 0;
-  overflow: hidden;
+  width: 100vw; height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box;
 }
 
 .main-center {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 100%;
   max-width: 700px;
+  width: 100%;
   z-index: 1;
 }
 
@@ -40,20 +31,27 @@ body, html {
   font-weight: 900;
   color: #fff;
   letter-spacing: -0.05em;
-  position: relative; /* 로고 이미지의 기준 위치 */
-  display: flex; /* 텍스트와 로고를 나란히 배치 */
-  align-items: flex-end; /* 텍스트와 로고 하단 정렬 */
   margin-bottom: 0.5rem;
+  display: flex;
   justify-content: center;
 }
 
-.main-logo-overlap {
-  position: absolute; /* .main-title 요소를 기준으로 위치 */
-  top: -0.85em; /* 텍스트 상단으로부터 위로 이동 (조정 필요) */
-  right: -0.7em; /* 텍스트 우측으로부터 왼쪽으로 이동 (조정 필요) */
-  width: 1.5em;
+.main-title-text {
+  position: relative;
+}
+
+.logo-replace {
+  position: relative;
+  display: inline-block;
+}
+
+.main-logo-inline {
+  position: absolute;
+  top: -0.6em; /* 조절 가능 */
+  left: 0;
+  width: 1.1em;
   height: auto;
-  z-index: 3;
+  z-index: 2;
   pointer-events: none;
 }
 
@@ -90,16 +88,19 @@ body, html {
   cursor: pointer;
   transition: box-shadow 0.2s;
 }
+
 .main-btn:hover {
   box-shadow: 0 8px 24px rgba(0,0,0,0.18);
 }
+
 .main-btn-icon {
   font-size: 1.5em;
 }
+
 .main-btn-arrow {
   font-size: 1.5em;
   margin-left: 0.5em;
-  position: relative; 
+  position: relative;
   top: -4px;
 }
 
@@ -116,10 +117,9 @@ body, html {
   .main-title {
     font-size: 2.5rem;
   }
-  .main-logo-overlap {
-    width: 1em;
-    top: -0.45em; /* 모바일에서 로고 위치 조정 (조정 필요) */
-    right: -0.4em; /* 모바일에서 로고 위치 조정 (조정 필요) */
+  .main-logo-inline {
+    width: 0.8em;
+    top: -0.45em;
   }
   .main-mascot {
     width: 120px;
