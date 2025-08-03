@@ -1,0 +1,34 @@
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import text
+
+app = Flask(__name__)
+
+# MySQL 접속 URI 형식
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:sewon0812^^@localhost/akoclub'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # 추적 비활성화
+
+db = SQLAlchemy(app)
+
+# 동아리(Club)
+class Club(db.Model):
+    __tablename__ = 'clubs'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    department = db.Column(db.String(100))
+    description = db.Column(db.String(45))
+    tags = db.Column(db.String(45))
+    sns_link = db.Column(db.String(225))
+    application_period = db.Column(db.String(45))
+    application_form = db.Column(db.String(225))
+    booth_location = db.Column(db.String(100))
+
+    def __repr__(self):
+        return f"<Club {self.id} - {self.name}>"
+
+
+@app.route('/')
+def index():
+    clubs = Club.query.all()
+    return '<br>'.join([f"{club.id}: {club.name}" for club in clubs])
