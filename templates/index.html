@@ -1,108 +1,32 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akoclub - 분과별 성향 테스트</title>
-    <link rel="stylesheet" href="/static/css/questionStyle.css">
-    <style>
-        .start-container {
-            text-align: center;
-            padding: 40px 20px;
-        }
-        
-        .start-title {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #fff;
-            margin-bottom: 20px;
-        }
-        
-        .start-description {
-            font-size: 1.2em;
-            color: #ccc;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-        
-        .start-btn {
-            background: linear-gradient(to right, #ff9933, #ff6600);
-            border: none;
-            border-radius: 15px;
-            padding: 20px 40px;
-            font-size: 1.3em;
-            color: #fff;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            font-weight: bold;
-            box-shadow: 0 6px 20px rgba(255, 153, 51, 0.3);
-        }
-        
-        .start-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 153, 51, 0.4);
-        }
-        
-        .start-btn:active {
-            transform: translateY(-1px);
-        }
-        
-        .reset-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 10px;
-            padding: 12px 25px;
-            font-size: 1em;
-            color: #ccc;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .reset-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            color: #fff;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AKoClub</title>
+  <link rel="stylesheet" href="/static/css/indexStyle.css">
 </head>
 <body>
-    <div class="container">
-        <div class="question-box">
-            <div class="start-container">
-                <h1 class="start-title">분과별 성향 테스트</h1>
-                <p class="start-description">
-                    당신에게 가장 잘 맞는 동아리 분과를 찾아보세요!<br>
-                    총 6개의 질문을 통해 당신의 성향을 분석합니다.
-                </p>
-                <button class="start-btn" onclick="startQuiz()">테스트 시작하기</button>
-                <br>
-                <button class="reset-btn" onclick="resetQuiz()">기존 결과 초기화</button>
-            </div>
-        </div>
+  <div class="main-bg">
+    <div class="main-center">
+      <div class="main-title">
+        <span class="main-title-text">
+          AK<span class="logo-replace">o
+            <img src="/static/images/우리학교 마크.png" class="main-logo-inline" alt="AkoClub 로고" />
+          </span>Club
+        </span>
+      </div>
+      <div class="main-sub">나에게 딱! 맞는 <span class="main-highlight">동국대학교</span> 동아리 찾기!</div>
+      <div class="main-desc">관심사와 성격에 맞는 동아리를 찾아보자!</div>
+      
+      <!-- 상대경로로 이동 (Flask 없이 작동 가능) -->
+      <a href="/templates/questions/question_1.html" class="main-btn">
+        <span class="main-btn-icon">👤</span> 탐색 시작하기 <span class="main-btn-arrow">»</span>
+      </a>
     </div>
-    
-    <script>
-        function startQuiz() {
-            // 첫 번째 질문 페이지로 이동 (올바른 경로로 수정)
-            window.location.href = '/templates/questionforSection/question_1.html';
-        }
-        
-        function resetQuiz() {
-            // 로컬 스토리지 초기화
-            localStorage.removeItem('userAnswers');
-            localStorage.removeItem('finalScores');
-            alert('기존 결과가 초기화되었습니다. 새로운 테스트를 시작하세요!');
-        }
-        
-        // 페이지 로드 시 기존 결과가 있는지 확인
-        window.addEventListener('load', () => {
-            const userAnswers = localStorage.getItem('userAnswers');
-            const finalScores = localStorage.getItem('finalScores');
-            
-            if (userAnswers && finalScores) {
-                console.log('기존 테스트 결과가 있습니다.');
-            }
-        });
-    </script>
+
+    <img src="/static/images/빼꼼아코.png" class="main-mascot" alt="mascot"/>
+  </div>
+  <script src="/static/js/main.js"></script>
 </body>
 </html>
