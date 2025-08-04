@@ -1,16 +1,9 @@
-from flask import Flask
+# DB 모델 정의
+
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import text
 
-app = Flask(__name__)
+db = SQLAlchemy()
 
-# MySQL 접속 URI 형식
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:sewon0812^^@localhost/akoclub'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # 추적 비활성화
-
-db = SQLAlchemy(app)
-
-# 동아리(Club)
 class Club(db.Model):
     __tablename__ = 'clubs'
 
@@ -26,9 +19,3 @@ class Club(db.Model):
 
     def __repr__(self):
         return f"<Club {self.id} - {self.name}>"
-
-
-@app.route('/')
-def index():
-    clubs = Club.query.all()
-    return '<br>'.join([f"{club.id}: {club.name}" for club in clubs])
