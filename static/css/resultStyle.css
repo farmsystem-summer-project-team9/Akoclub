@@ -110,3 +110,41 @@ button {
   font-size: 1rem;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .top-wrapper {
+    padding: 1.5rem 0.5rem 0.5rem; /* 상단 여백 줄임 */
+  }
+  .main-title {
+    font-size: 1.8rem;
+  }
+  .sub-text {
+    font-size: 0.9rem;
+  }
+  .top-character {
+    width: 80px;
+    height: 80px;
+  }
+  .container {
+    margin: 0.5rem; /* 여백 줄임 */
+    padding: 1rem; /* 패딩 줄임 */
+  }
+  .club-logo {
+    width: 100px;
+    height: 100px;
+  }
+  .club-card h3 {
+    font-size: 1.3rem;
+  }
+  .club-card p {
+    font-size: 0.9rem;
+  }
+  .highlight-box {
+    font-size: 0.95rem;
+    padding: 0.8rem;
+  }
+  button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.5rem;
+  }
+}

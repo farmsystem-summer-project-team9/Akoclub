@@ -14,9 +14,9 @@ html, body {
 .container {
     background-color: transparent; /* container의 배경을 투명하게 만듭니다. */
     border-radius: 0;
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
+    /* overflow: hidden; */
+    width: 100%;
+    min-height: 100vh;
     max-width: none;
     box-shadow: none;
     display: flex;
@@ -38,7 +38,7 @@ html, body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 100vh; /* 전체 화면 높이 사용 */
+    min-height: 100vh; /* height 대신 min-height 사용 */
 }
 
 .question-indicator {
@@ -84,11 +84,18 @@ html, body {
 
 /* 모바일에서는 항상 세로 배치 */
 @media (max-width: 768px) {
+    .question-text {
+        font-size: 1.4em; /* 모바일에서 폰트 크기 줄임 */
+    }
     .options {
         grid-template-columns: 1fr !important;
         grid-template-rows: auto !important;
         width: 95%;
         gap: 15px;
+    }
+    .elephant-icon{
+        width: 180px; /* 모바일에서 코끼리 아이콘 크기 줄임 */
+        height: 180px;
     }
 }
 

@@ -113,19 +113,44 @@ body, html {
   pointer-events: none;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) { /* 일반적인 모바일/태블릿 */
+  .main-title {
+    font-size: 3rem;
+    text-align: center;
+  }
+  .main-sub {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0 20px;
+  }
+  .main-desc {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+  .main-btn {
+    font-size: 1.2rem;
+    padding: 0.8em 2em;
+  }
+  .main-mascot {
+    width: 150px;
+  }
+}
+
+@media (max-width: 480px) { /* 더 작은 모바일 화면 */
   .main-title {
     font-size: 2.5rem;
   }
-  .main-logo-inline {
-    width: 0.8em;
-    top: -0.45em;
+  .main-sub {
+    font-size: 1.2rem;
+  }
+  .main-desc {
+    font-size: 0.9rem;
+  }
+  .main-btn {
+    font-size: 1rem;
+    padding: 0.7em 1.5em;
   }
   .main-mascot {
     width: 120px;
-  }
-  .main-btn {
-    font-size: 1.1rem;
-    padding: 0.6em 1.5em;
   }
 }
