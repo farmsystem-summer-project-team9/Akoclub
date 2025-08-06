@@ -1,4 +1,5 @@
 # DB 모델 정의
+# /app/models.py
 
 from app import db
 
