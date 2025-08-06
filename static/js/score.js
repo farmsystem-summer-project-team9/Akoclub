@@ -1,5 +1,6 @@
 //socre.js
-//점수 계산 로직 + 다음페이지로 넘어가는 것 구현
+//점수 계산 로직 + quesiont1~6->result_choice.html 로 넘어가는 기능까지 구현
+//그 이후는 detailQuestion.js에 구현
 
 
 // 사용자 답변 저장 배열
