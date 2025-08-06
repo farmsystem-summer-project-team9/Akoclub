@@ -1,8 +1,7 @@
 # DB 모델 정의
+# /app/models.py
 
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+from app import db
 
 class Club(db.Model):
     __tablename__ = 'clubs'

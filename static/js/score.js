@@ -1,5 +1,6 @@
 //socre.js
-//점수 계산 로직 + 다음페이지로 넘어가는 것 구현
+//점수 계산 로직 + quesiont1~6->result_choice.html 로 넘어가는 기능까지 구현
+//그 이후는 detailQuestion.js에 구현
 
 
 // 사용자 답변 저장 배열
@@ -78,11 +79,11 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 if (questionIndex < totalQuestions - 1) {
                     // 다음 질문 페이지로 이동
-                    const nextQuestionFileName = `question_${questionIndex + 2}.html`;
-                    window.location.href = `/templates/questions/${nextQuestionFileName}`;
+                    const nextPageNumber = questionIndex + 2;
+                    window.location.href = `/questions/${nextPageNumber}`;
                 } else {
                     // 마지막 질문이라면 결과 선택 페이지로 이동
-                    window.location.href = '/templates/result_choice.html';
+                    window.location.href = '/result_choice';
                 }
             }, 300); // 0.3초 후 이동
         });
