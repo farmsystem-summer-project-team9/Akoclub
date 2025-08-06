@@ -1,3 +1,4 @@
+# app/routes/department.py
 # 추천된 분과의 동아리 리스트 출력 
 
 from flask import Blueprint, jsonify
