@@ -44,3 +44,24 @@ def detail_questions(category):
         return render_template(f'detail_questions/{template_path}')
     else:
         return render_template('404.html'), 404
+
+
+@main_bp.route('/detail_questions/<category>/<page>')
+def render_detail_question(category, page):
+    try:
+        return render_template(f'detail_questions/{category}/{page}.html')
+    except:
+        return render_templage('404.html'), 404
+    
+
+#최종 결과 페이지
+@main_bp.route('/result')
+def result():
+    selected_answer = request.args.get('answer')
+
+    result_data = get_result_by_answer(selected_answer)
+
+    if result_data:
+        return render_template('result.html', result=result_data)
+    else:
+        return render_template('404.html'), 404
