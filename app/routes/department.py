@@ -29,3 +29,27 @@ def get_clubs_by_department(department):
     } for c in clubs]
 
     return jsonify(result)
+
+
+
+# 특정 동아리 ID로 동아리 1개 정보 조회 API
+@club_bp.route('/club/<int:club_id>', methods=['GET'])
+def get_club_by_id(club_id):
+    club = Club.query.get(club_id)
+
+    if not club:
+        return jsonify({'message': f'{club_id}번 ID의 동아리를 찾을 수 없습니다.'}), 404
+
+    result = {
+        'id': club.id,
+        'name': club.name,
+        'department': club.department,
+        'description': club.description,
+        'tags': club.tags,
+        'sns_link': club.sns_link,
+        'application_period': club.application_period,
+        'application_form': club.application_form,
+        'booth_location': club.booth_location,
+    }
+
+    return jsonify(result)
