@@ -78,11 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 if (questionIndex < totalQuestions - 1) {
                     // 다음 질문 페이지로 이동
-                    const nextQuestionFileName = `question_${questionIndex + 2}.html`;
-                    window.location.href = `/templates/questions/${nextQuestionFileName}`;
+                    const nextPageNumber = questionIndex + 2;
+                    window.location.href = `/questions/${nextPageNumber}`;
                 } else {
                     // 마지막 질문이라면 결과 선택 페이지로 이동
-                    window.location.href = '/templates/result_choice.html';
+                    window.location.href = '/result_choice';
                 }
             }, 300); // 0.3초 후 이동
         });

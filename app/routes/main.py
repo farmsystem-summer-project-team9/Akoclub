@@ -6,9 +6,9 @@ main_bp = Blueprint('main', __name__)
 def index():
     return render_template('index.html')
 
-@main_bp.route('/questions')
-def questions():
-    return render_template('questions/question_1.html')
+@main_bp.route('/questions/<int:number>')
+def questions(number):
+    return render_template(f'questions/question_{number}.html')
 
 @main_bp.route('/result')
 def result():
@@ -21,3 +21,7 @@ def clubs():
 @main_bp.route('/detail_questions')
 def detail_questions():
     return render_template('detail_questions.html')
+
+@main_bp.route('/result_choice')
+def result_choice():
+    return render_template('result_choice.html')
