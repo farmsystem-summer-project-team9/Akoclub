@@ -1,0 +1,32 @@
+<!-- templates/result.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>추천 동아리</title>
+  <link rel="stylesheet" href="/static/css/resultStyle.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>✨추천 동아리✨</h2>
+      <p>검사 결과 너와 가장 잘 어울리는 동아리야!</p>
+    </div>
+
+    <div class="club-card">
+      <img src="/static/images/default.png" alt="club logo" class="club-logo" />
+        <h3>{{ club.name }}</h3>
+        <p><strong>인스타 아이디:</strong> {{ club.sns_link }}</p>
+        <p><strong>가입 신청 폼:</strong> <a href="{{ club.application_form }}">{{ club.application_form }}</a></p>
+        <p><strong>2학기 신청 일정:</strong> {{ club.application_period }}</p>
+        <div class="highlight-box">
+            {{ club.description }}
+        </div>
+    </div>
+
+    <div class="buttons">
+      <button onclick="location.href='/'">≪ 다시하기</button>
+    </div>
+  </div>
+</body>
+</html>

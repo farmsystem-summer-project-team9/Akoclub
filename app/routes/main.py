@@ -1,7 +1,12 @@
 # app/routes/main.py
 from flask import Blueprint, render_template, request
+from app.models import Club
+#동아리 매핑 
+from app.constants.club_mapping import QUESTION_CLUB_MAP
+
 
 main_bp = Blueprint('main', __name__)
+
 
 #메인페이지 
 @main_bp.route('/')
@@ -52,16 +57,28 @@ def render_detail_question(category, page):
         return render_template(f'detail_questions/{category}/{page}.html')
     except:
         return render_templage('404.html'), 404
-    
+
+
 
 #최종 결과 페이지
 @main_bp.route('/result')
 def result():
-    selected_answer = request.args.get('answer')
+    question_id = request.args.get('question_id')
+    option_index = request.args.get('option_index', type=int)
 
-    result_data = get_result_by_answer(selected_answer)
-
-    if result_data:
-        return render_template('result.html', result=result_data)
-    else:
+    if not question_id or option_index is None:
         return render_template('404.html'), 404
+
+    club_id = QUESTION_CLUB_MAP.get(question_id, {}).get(option_index)
+
+    if not club_id:
+        return render_template('404.html'), 404
+
+    club = Club.query.get(club_id)
+
+    if not club:
+        return render_template('404.html'), 404
+
+    return render_template('result.html', club=club)
+
+
