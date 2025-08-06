@@ -1,55 +1,112 @@
-/* static/css/resultStyle.css */
-body {
-  font-family: 'Pretendard', sans-serif;
-  background: linear-gradient(to bottom right, #ffa07a, #fdd9a0);
+/* 배경 그라데이션 */
+html, body {
+  height: 100%;
   margin: 0;
-  padding: 2rem;
+  padding: 0;
+  font-family: 'Pretendard', sans-serif;
+  background: linear-gradient(180deg, #f97e3c 0%, #fbb040 100%);
 }
 
-.container {
-  max-width: 600px;
-  margin: auto;
-  background: white;
-  border-radius: 1rem;
-  padding: 2rem;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
-}
-
-.header {
+/* 상단 전체 래퍼 */
+.top-wrapper {
   text-align: center;
-  margin-bottom: 2rem;
+  padding: 2.5rem 1rem 1rem;
+  color: white;
+}
+
+/* ✨추천 동아리✨ */
+.main-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+}
+
+/* 캐릭터와 문구 가로 정렬 */
+.sub-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* 캐릭터 이미지 크기 */
+.top-character {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+/* 검사 결과 문구 */
+.sub-text {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* 하얀색 카드 박스 */
+.container {
+  max-width: 800px;
+  margin: 1.5rem auto;
+  background: white;
+  border-radius: 2rem;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 동아리 카드 내부 */
+.club-card {
+  text-align: center;
+  margin-top: 1rem;
 }
 
 .club-logo {
-  width: 100px;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
   border-radius: 50%;
   display: block;
   margin: 1rem auto;
+  border: 2px solid #ccc;
 }
 
-.club-card {
-  text-align: center;
+.club-card h3 {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
 }
 
+.club-card p {
+  margin: 0.2rem 0;
+  font-size: 1rem;
+}
+
+/* 링크 스타일 */
+a {
+  color: #2a9d8f;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+/* 설명 박스 */
 .highlight-box {
   background: #f4a261;
   padding: 1rem;
-  border-radius: 0.5rem;
-  margin-top: 1rem;
+  border-radius: 1rem;
+  margin-top: 1.5rem;
   font-weight: bold;
+  font-size: 1.05rem;
 }
 
+/* 버튼 영역 */
 .buttons {
   margin-top: 2rem;
   text-align: center;
 }
 
 button {
-  padding: 0.5rem 1.5rem;
+  padding: 0.7rem 1.8rem;
   border: none;
   background: #264653;
   color: white;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   font-size: 1rem;
   cursor: pointer;
 }
