@@ -15,7 +15,6 @@ def get_clubs_by_department(department):
     if not clubs:
         return jsonify({'message': f'"{department}" 분과의 동아리를 찾을 수 없습니다.'}), 404
 
-
     result = [{
         'id': c.id,
         'name': c.name,
@@ -26,6 +25,7 @@ def get_clubs_by_department(department):
         'application_period': c.application_period,
         'application_form': c.application_form,
         'booth_location': c.booth_location,
+        'club_logo': c.club_logo
     } for c in clubs]
 
     return jsonify(result)
@@ -50,6 +50,7 @@ def get_club_by_id(club_id):
         'application_period': club.application_period,
         'application_form': club.application_form,
         'booth_location': club.booth_location,
+        'club_logo': club.club_logo
     }
 
     return jsonify(result)
