@@ -19,9 +19,13 @@
   <!-- 동아리 정보 카드 -->
   <div class="container">
     <div class="club-card">
-      <img src="/static/images/default.png" alt="club logo" class="club-logo" />
+      <img src="{{ url_for('static', filename=club.club_logo) }}" alt="club logo" class="club-logo" />
       <h3>{{ club.name }}</h3>
-      <p><strong>인스타 아이디:</strong> {{ club.sns_link }}</p>
+      <p><strong>인스타 아이디:</strong> 
+        <a href="{{ club.sns_link }}" target="_blank" rel="noopener noreferrer">
+          {{ club.sns_link }}
+       </a>
+      </p>
       <p><strong>가입 신청 폼:</strong> <a href="{{ club.application_form }}">{{ club.application_form }}</a></p>
       <p><strong>2학기 신청 일정:</strong> {{ club.application_period }}</p>
       <div class="highlight-box">
