@@ -86,18 +86,6 @@ def result():
 
         if not club_data:
             return "해당 클럽 데이터를 찾을 수 없습니다.", 404
-        
-        # 로고 삽입 코드
-        img_extensions = ['.jpg', '.png', '.jpeg']
-        for ext in img_extensions:
-            image_path = os.path.join(BASE_DIR, 'static', 'images', 'clubs', f'club{club_data["id"]}{ext}')
-            if os.path.exists(image_path):
-                # club_data에 이미지 경로 저장
-                club_data['club_logo'] = f'images/clubs/club{club_data["id"]}{ext}'
-                break
-        else:
-            # 이미지 못 찾으면 기본 이미지로 설정
-            club_data['club_logo'] = 'images/default.png'
 
         return render_template('result.html', club=club_data)
 
