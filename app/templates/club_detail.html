@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>{{ club.name }} 상세 정보</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/clubStyle.css') }}">
+  <link rel="stylesheet" href="/static/css/clubDetailStyle.css">
 </head>
 <body>
 
@@ -26,9 +26,10 @@
   </div>
 
   <div class="buttons">
-    <button onclick="history.back()">≪ 목록으로</button>
-    <button onclick="location.href='/'">홈으로</button>
+    <button onclick="location.href='/'">처음으로</button>
+    <button onclick="history.back()">이전으로</button>
   </div>
+
 
 </body>
 </html>

@@ -48,6 +48,7 @@ def show_clubs_by_department(department):
     if not clubs:
         return render_template('404.html', message=f"{department} 분과에 해당하는 동아리가 없습니다."), 404
 
+
     return render_template('club_list.html', department=department, clubs=clubs)
 
 
