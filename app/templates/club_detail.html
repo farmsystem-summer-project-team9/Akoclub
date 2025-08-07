@@ -1,0 +1,35 @@
+<!-- templates/club_detail.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ club.name }} 상세 정보</title>
+  <link rel="stylesheet" href="/static/css/clubDetailStyle.css">
+</head>
+<body>
+
+  <div class="club-detail">
+    <h1 class="main-title">🎉 {{ club.name }} 🎉</h1>
+    <img src="{{ url_for('static', filename=club.club_logo) }}" alt="club logo" class="club-logo" />
+
+    <p><strong>분과:</strong> {{ club.department }}</p>
+    <p><strong>태그:</strong> {{ club.tags }}</p>
+    <p><strong>소개:</strong> {{ club.description }}</p>
+    <p><strong>신청 일정:</strong> {{ club.application_period }}</p>
+    <p><strong>가입 폼:</strong> 
+      <a href="{{ club.application_form }}" target="_blank">{{ club.application_form }}</a>
+    </p>
+    <p><strong>인스타:</strong> 
+      <a href="{{ club.sns_link }}" target="_blank">{{ club.sns_link }}</a>
+    </p>
+    <p><strong>부스 위치:</strong> {{ club.booth_location }}</p>
+  </div>
+
+  <div class="buttons">
+    <button onclick="location.href='/'">처음으로</button>
+    <button onclick="history.back()">이전으로</button>
+  </div>
+
+
+</body>
+</html>
