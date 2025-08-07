@@ -1,0 +1,57 @@
+/* static/css/clubStyle.css */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #e8f0ff, #f0e8ff);
+  padding: 30px;
+  text-align: center;
+  color: #333;
+}
+
+.title, .main-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #5a3fc0;
+}
+
+.club-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.club-card, .club-detail {
+  background-color: #ffffffcc;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 300px;
+}
+
+.club-logo {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.detail-btn, .buttons button {
+  background-color: #5a3fc0;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.detail-btn:hover, .buttons button:hover {
+  background-color: #3e2c9b;
+}
+
+.buttons {
+  margin-top: 30px;
+}
