@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const questionId = document.body.dataset.questionId;
     const questionIndex = parseInt(document.body.dataset.questionIndex || '1') - 1; 
     const optionButtons = document.querySelectorAll('.option-btn');
-    const totalQuestions = quizData.length; 
+    const totalQuestions = questionData.length; 
 
     //선택지 개수가 6개일때 2*3으로 레이아웃 변경
     const optionsContainer = document.querySelector('.options');
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const selectedOptionIndex = parseInt(button.dataset.optionIndex);
             const previousAnswerIndex = userAnswers[questionId];
 
-            const currentQuestionData = quizData.find(q => q.id === questionId);
+            const currentQuestionData = questionData.find(q => q.id === questionId);
 
             // 이전 답변의 점수를 제거
             if (previousAnswerIndex !== undefined && currentQuestionData) {
