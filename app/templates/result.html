@@ -9,10 +9,12 @@
 
   <!-- 상단 타이틀 + 문구 + 캐릭터 -->
   <div class="top-wrapper">
-    <h1 class="main-title">✨추천 동아리✨</h1>
     <div class="sub-header">
-      <img src="/static/images/hi_Ako.png" alt="캐릭터 이미지" class="top-character" />
-      <p class="sub-text">검사 결과 너와 가장 잘 어울리는 동아리야!</p>
+      <img src="/static/images/hi_Ako.png" alt="캐릭터 이미지" class="top-character bounce" />
+      <div class="text-group">
+        <h1 class="main-title"> < 추천 동아리 > </h1>
+        <p class="sub-text">검사 결과 너와 가장 잘 어울리는 동아리야!</p>
+      </div>
     </div>
   </div>
 
@@ -32,10 +34,10 @@
         {{ club.description }}
       </div>
     </div>
+  </div>
 
-    <div class="buttons">
+  <div class="buttons">
       <button onclick="location.href='/'">≪ 다시하기</button>
-    </div>
   </div>
   
 </body>

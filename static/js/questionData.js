@@ -1,6 +1,6 @@
 //questionData.js
 //분과별 가중치 설정
-const quizData = [
+const questionData = [
     {
     
         id: "Q1",

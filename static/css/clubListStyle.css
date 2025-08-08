@@ -15,9 +15,10 @@ body {
 }
 
 .club-grid {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  gap: 24px;
   justify-content: center;
 }
 
@@ -85,7 +86,7 @@ body {
 }
 
 .buttons button {
-  background-color: #f97e3c;
+  background-color: #264653;
   color: white;
   padding: 8px 16px;
   border: none;
