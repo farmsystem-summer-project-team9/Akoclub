@@ -12,6 +12,8 @@ html, body {
   text-align: center;
   padding: 2.5rem 1rem 1rem;
   color: white;
+  display: flex;
+  justify-content: center;
 }
 
 /* ✨추천 동아리✨ */
@@ -25,15 +27,19 @@ html, body {
 .sub-header {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 1rem;
 }
 
 /* 캐릭터 이미지 크기 */
 .top-character {
   width: 100px;
-  height: 100px;
+  height: auto;
   object-fit: contain;
+}
+
+.text-group {
+  display: flex;
+  flex-direction: column;
 }
 
 /* 검사 결과 문구 */
@@ -42,6 +48,21 @@ html, body {
   margin: 0;
 }
 
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translate(0);
+  }
+  50% {
+    transform: translate(-8px);
+  }
+}
+
+.bounce {
+    animation: bounce 1.5s infinite ease-in-out;
+  }
+
+  
 /* 하얀색 카드 박스 */
 .container {
   max-width: 800px;
