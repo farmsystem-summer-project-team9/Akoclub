@@ -1,10 +1,14 @@
 /* 배경 그라데이션 */
 html, body {
-  height: 100%;
+  min-height: 100vh;
+  height: auto;
+  width: 100%;
   margin: 0;
   padding: 0;
   font-family: 'Pretendard', sans-serif;
   background: linear-gradient(180deg, #f97e3c 0%, #fbb040 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* 상단 전체 래퍼 */
@@ -32,7 +36,7 @@ html, body {
 
 /* 캐릭터 이미지 크기 */
 .top-character {
-  width: 100px;
+  width: 140px;
   height: auto;
   object-fit: contain;
 }
@@ -63,20 +67,57 @@ html, body {
   }
 
   
-/* 하얀색 카드 박스 */
+/* 반투명 카드 박스 */
 .container {
-  max-width: 800px;
-  margin: 1.5rem auto;
-  background: white;
+  max-width: 900px;
+  margin: 2rem auto;
+  background: rgba(255, 255, 255, 0.50);
   border-radius: 2rem;
-  padding: 2rem;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem 0.7rem 3.2rem 0.7rem;
+  position: relative;
+}
+
+
+.club-list {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  overflow-x: auto;
+  padding: 0 2rem 2rem 2rem;
+  scroll-behavior: smooth;
+  justify-content: flex-start;
+}
+
+/* 결과가 동아리 한 개 일때*/
+.club-list.single{
+  justify-content: center;
+  overflow-x: unset;
+  min-height: 0;
+  height: auto;
+}
+
+.club-list.single .club-card {
+  max-width: 860px;
+  min-width: 0;
+  width: 98%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* 동아리 카드 내부 */
 .club-card {
+  background: #fff;
+  border-radius: 1.5rem;
+  padding: 2rem 1.2rem;
+  box-shadow: 0 0 16px rgba(0,0,0,0.07);
+  width: 100%;
+  max-width: 420px;   /* 기본: 여러개일 때 카드 크기 */
+  margin: 0 auto;
+  min-width: 300px;
+  box-sizing: border-box;
   text-align: center;
-  margin-top: 1rem;
 }
 
 .club-logo {
@@ -108,20 +149,25 @@ a {
 
 /* 설명 박스 */
 .highlight-box {
-  background: #f4a261;
+  background: #f97e3c;
   padding: 1rem;
   border-radius: 1rem;
   margin-top: 1.5rem;
   font-weight: bold;
   font-size: 1.05rem;
-}
-
-/* 버튼 영역 */
-.buttons {
-  margin-top: 2rem;
+  color: #fff;
   text-align: center;
 }
 
+/* "다시하기" 버튼 영역*/
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 15px auto 0 auto;    /* 위쪽 간격 넉넉히 */
+  position: relative;
+  z-index: 2;
+}
 button {
   padding: 0.7rem 1.8rem;
   border: none;
@@ -130,9 +176,11 @@ button {
   border-radius: 1rem;
   font-size: 1rem;
   cursor: pointer;
+  margin: 0 auto;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.09);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .top-wrapper {
     padding: 1.5rem 0.5rem 0.5rem; /* 상단 여백 줄임 */
   }
@@ -154,6 +202,30 @@ button {
     width: 100px;
     height: 100px;
   }
+  .club-list {
+    gap: 1rem;
+    padding: 0 0.5rem 1rem 0.5rem;
+  }
+  
+  .club-list.single .club-card {
+    min-width: 92vw;
+    max-width: 92vw;
+    padding: 1.2rem 0.4rem;
+  }
+
+  .club-list .club-card {
+    min-width: 80vw;
+    max-width: 80vw;
+    padding: 1.2rem 0.4rem;
+  }
+
+
+  .club-card{
+    min-width: 80vw;
+    max-width: 80vw;
+    padding: 1.2rem 0.7rem;
+  }
+
   .club-card h3 {
     font-size: 1.3rem;
   }

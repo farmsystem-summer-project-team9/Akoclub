@@ -127,30 +127,38 @@ def result():
         with open(json_path, encoding='utf-8') as f:
             data = json.load(f)
 
-        club_id = QUESTION_CLUB_MAP.get(question_id, {}).get(option_index)
+        club_ids = QUESTION_CLUB_MAP.get(question_id, {}).get(option_index)
 
-        if not club_id:
+        if not club_ids:
             return "추천된 클럽이 없습니다.", 404
 
-        club_data = next((club for club in data if club['id'] == club_id), None)
+        if not isinstance(club_ids, list):
+            club_ids = [club_ids]
 
-        if not club_data:
+        club_data_list = []
+        for club_id in club_ids:
+            club_data = next((club for club in data if club['id'] == club_id), None)
+            if club_data:
+
+                # 로고 삽입 코드
+                img_extensions = ['.jpg', '.png', '.jpeg']
+                for ext in img_extensions:
+                    image_path = os.path.join(BASE_DIR, 'static', 'images', 'clubs', f'club{club_data["id"]}{ext}')
+                    if os.path.exists(image_path):
+                        # club_data에 이미지 경로 저장
+                        club_data['club_logo'] = f'images/clubs/club{club_data["id"]}{ext}'
+                        break
+                else:
+                # 이미지 못 찾으면 기본 이미지로 설정
+                    club_data['club_logo'] = 'images/default.png'
+                club_data_list.append(club_data)
+
+
+        if not club_data_list:
             return "해당 클럽 데이터를 찾을 수 없습니다.", 404
-                
-        # 로고 삽입 코드
-        img_extensions = ['.jpg', '.png', '.jpeg']
-        for ext in img_extensions:
-            image_path = os.path.join(BASE_DIR, 'static', 'images', 'clubs', f'club{club_data["id"]}{ext}')
-            if os.path.exists(image_path):
-                # club_data에 이미지 경로 저장
-                club_data['club_logo'] = f'images/clubs/club{club_data["id"]}{ext}'
-                break
-        else:
-            # 이미지 못 찾으면 기본 이미지로 설정
-            club_data['club_logo'] = 'images/default.png'
+        
 
-
-        return render_template('result.html', club=club_data)
+        return render_template('result.html', clubs = club_data_list)
 
     except Exception as e:
         print("JSON 파일 불러오기 실패:", e)
