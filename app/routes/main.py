@@ -74,8 +74,9 @@ def show_club_detail(club_id):
         if os.path.exists(image_path):
             club['club_logo'] = f'images/clubs/club{club_id}{ext}'
             break
+    # 로고가 없을 시 default이미지를 적용
     else:
-        club['club_logo'] = 'images/default.png'
+        club['club_logo'] = 'images/clubs/default.png'
 
     return render_template('club_detail.html', club=club)
 
@@ -150,7 +151,7 @@ def result():
                         break
                 else:
                 # 이미지 못 찾으면 기본 이미지로 설정
-                    club_data['club_logo'] = 'images/default.png'
+                    club_data['club_logo'] = 'images/clubs/default.png'
                 club_data_list.append(club_data)
 
 
