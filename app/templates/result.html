@@ -20,25 +20,32 @@
 
   <!-- 동아리 정보 카드 -->
   <div class="container">
-    <div class="club-card">
-      <img src="{{ url_for('static', filename=club.club_logo) }}" alt="club logo" class="club-logo" />
-      <h3>{{ club.name }}</h3>
-      <p><strong>인스타 아이디:</strong> 
-        <a href="{{ club.sns_link }}" target="_blank" rel="noopener noreferrer">
-          {{ club.sns_link }}
-       </a>
-      </p>
-      <p><strong>가입 신청 폼:</strong> <a href="{{ club.application_form }}">{{ club.application_form }}</a></p>
-      <p><strong>2학기 신청 일정:</strong> {{ club.application_period }}</p>
-      <div class="highlight-box">
-        {{ club.description }}
+    <div class = "club-list{% if clubs|length == 1%} single{% endif %}">
+      {% for club in clubs %}
+      <div class="club-card">
+        <img src="{{ url_for('static', filename=club.club_logo) }}" alt="club logo" class="club-logo" />
+        <h3>{{ club.name }}</h3>
+        <p><strong>인스타 아이디:</strong> 
+          <a href="{{ club.sns_link }}" target="_blank" rel="noopener noreferrer">
+            {{ club.sns_link }}
+          </a>
+        </p>
+        <p><strong>가입 신청 폼:</strong> <a href="{{ club.application_form }}">{{ club.application_form }}</a></p>
+        <p><strong>2학기 신청 일정:</strong> {{ club.application_period }}</p>
+        <div class="highlight-box">
+          {{ club.description }}
+        </div>
       </div>
+      {% endfor %}
     </div>
+
+    <div class="buttons">
+      <button onclick="location.href='/'">≪ 다시하기</button>
+    </div>
+
   </div>
 
-  <div class="buttons">
-      <button onclick="location.href='/'">≪ 다시하기</button>
-  </div>
+
   
 </body>
 </html>
