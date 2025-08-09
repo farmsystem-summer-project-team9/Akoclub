@@ -1,6 +1,6 @@
 # app/routes/search.py
 # 동아리 검색 API (name / tags / description 대상) - JSON 기반 버전
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, render_template
 import os, json
 
 search_bp = Blueprint('search_bp', __name__)
@@ -49,7 +49,7 @@ def _club_to_dict(c):
         'club_logo': c.get('club_logo')  # 없으면 None
     }
 
-@search_bp.route('/clubs/search', methods=['GET'])
+@search_bp.route('/api/clubs/search', methods=['GET'])
 def search_clubs():
     """
     예) GET /api/clubs/search?q=밴드 음악&mode=and&page=1&pageSize=20
@@ -98,5 +98,14 @@ def search_clubs():
     }), 200
 @search_bp.route("/search")
 def search_page():
-    return render_template("search.html")
+    q = (request.args.get('q') or '').strip()
+    clubs = []
+    if q:
+        tokens = [t for t in q.split() if t.strip()]
+        if tokens:
+            data = _load_data()
+            clubs = [c for c in data if _matches(c, tokens, 'or')]
+            clubs.sort(key=lambda c: _field_text(c, 'name'))
+
+    return render_template("search.html", clubs=clubs, query=q)
 
