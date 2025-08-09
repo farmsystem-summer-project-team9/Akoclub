@@ -26,7 +26,7 @@ def create_app():
     # from app.routes.department import club_bp
     from app.routes.search import search_bp
     # app.register_blueprint(club_bp, url_prefix='/api')
-    app.register_blueprint(search_bp, url_prefix='/api')
+    app.register_blueprint(search_bp)
 
 
     return app

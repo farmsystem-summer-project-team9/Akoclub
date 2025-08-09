@@ -113,6 +113,34 @@ body, html {
   pointer-events: none;
 }
 
+.top-search-form {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  position: relative;
+  z-index: 10; /* Make sure it's on top */
+}
+
+.top-search-input {
+  width: 50%;
+  max-width: 400px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 20px; /* Rounded corners */
+}
+
+.top-search-btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #007bff;
+  background-color: #007bff;
+  color: white;
+  border-radius: 20px;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) { /* 일반적인 모바일/태블릿 */
   .main-title {
     font-size: 3rem;

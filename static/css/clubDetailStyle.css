@@ -1,10 +1,13 @@
-body {
+html, body {
   font-family: 'Pretendard', sans-serif;
   background: linear-gradient(180deg, #f97e3c 0%, #fbb040 100%);
   margin: 0;
   padding: 2rem;
   text-align: center;
   color: #333;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-attachment: fixed;
 }
 
 .club-detail {

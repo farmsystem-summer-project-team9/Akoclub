@@ -1,0 +1,41 @@
+<!-- templates/search.html -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>동아리 검색 결과</title>
+  <link rel="stylesheet" href="/static/css/clubListStyle.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <h1 class="page-title">'{{ query }}'에 대한 검색 결과</h1>
+
+  <form method="GET" action="{{ url_for('search_bp.search_page') }}" class="top-search-form">
+    <input type="text" name="q" placeholder="검색어를 다시 입력하세요" value="{{ query }}" class="top-search-input">
+    <button type="submit" class="top-search-btn">검색</button>
+  </form>
+
+  {% if clubs %}
+    <div class="club-grid">
+      {% for club in clubs %}
+        <div class="club-card no-image">
+          <div class="club-content">
+            <h2 class="club-name">{{ club.name }}</h2>
+            <p class="club-tags">태그: {{ club.tags }}</p>
+            <p class="club-desc">{{ club.description }}</p>
+          </div>
+          <a href="{{ url_for('main_bp.show_club_detail', club_id=club.id) }}" class="detail-btn">상세 보기</a>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>검색 결과가 없습니다.</p>
+  {% endif %}
+
+  <div class="buttons">
+    <button onclick="location.href='/'">처음으로</button>
+  </div>
+
+</body>
+</html>
